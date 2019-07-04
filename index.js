@@ -8,36 +8,40 @@ const log4js = require('log4js');
 const logger = log4js.getLogger('[index]');
 logger.level = process.env.LOG_LEVEL || 'INFO';
 
-const kafka = require('./lib/kafka');
-
 const DCDModel = require("dcd-model");
-const Thing = require("dcd-model/entities/Thing");
-const Interaction = require("dcd-model/entities/Interaction");
-const Person = require("dcd-model/entities/Person");
 const Property = require("dcd-model/entities/Property");
-
-const model = new DCDModel();
-model.init();
 
 const propertyMap = {};
 const thingMap = {};
 
-const topics = [
-  {
-    topic: 'things',
-    partition: 0
-  },
-  {
-    topic: 'properties',
-    partition: 0
-  },
-  {
-    topic: 'values',
-    partition: 0
-  }
-];
+const model = new DCDModel();
+model.init()
+  .then( () => {
 
-kafka.connect(topics, onMessage);
+    const topics = [
+      {
+        topic: 'things',
+        partition: 0
+      },
+      {
+        topic: 'properties',
+        partition: 0
+      },
+      {
+        topic: 'values',
+        partition: 0
+      }
+    ];
+
+    const options = {
+      groupId: 'dcd-processor',
+      autoCommit: false,
+      fetchMaxWaitMs: 1000,
+      fetchMaxBytes: 1024 * 1024
+    };
+
+    model.kafka.setConsumer(topics, options, onMessage)
+  });
 
 /**
  * Handle Kafka messages
