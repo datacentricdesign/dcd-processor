@@ -17,7 +17,7 @@
   },
   "homepage": "https://github.com/datacentricdesign/dcd-processor#readme",
   "dependencies": {
-    "dcd-model": "0.0.67",
+    "dcd-model": "0.0.68",
     "dotenv": "8.0.0",
     "influx": "5.4.0",
     "kafka-node": "4.1.3",
