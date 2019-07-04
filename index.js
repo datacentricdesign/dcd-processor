@@ -86,8 +86,7 @@ function processProperty(property) {
     if (!thingMap.hasOwnProperty(property.entityId)) {
       model.things.read(property.entityId)
         .then((thing) => {
-          logger.debug('read thing ');
-          logger.debug(thing);
+          logger.debug('read thing ' + thing.id);
           thingMap[property.entityId] = {
             id: thing.id,
             currentPeriodDataCount: 0,
@@ -97,8 +96,7 @@ function processProperty(property) {
           };
         })
         .catch((error) => {
-          logger.debug('error read thing ');
-          logger.debug(error);
+          logger.debug('error read thing: ' + error.message);
           createThingProperties(property.entityId);
         });
     }
@@ -118,6 +116,7 @@ function checkActivityAndCount() {
   for (let key in thingMap) {
     if (!thingMap.hasOwnProperty(key)) continue;
     let thing = thingMap[key];
+    logger.debug(thing.id + ' ' + thing.currentPeriodDataCount + ' ' + thing.activity);
     if (thing.currentPeriodDataCount > 0) {
       // assume that we will receive a values for the count, so we start at -1
       thing.currentPeriodDataCount = -1;
