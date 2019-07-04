@@ -12,6 +12,7 @@ LOG_LEVEL=DEBUG
 KAFKA=true
 KAFKA_HOST=
 KAFKA_PORT=9092
+AUTH_ENABLED=FASLE
 ```
 
 Tune the data activity and count with the following env variable (in ms)
