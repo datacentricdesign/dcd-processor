@@ -66,7 +66,7 @@ function onMessage(message) {
       processProperty(json, message.key);
       break;
     case 'values':
-      processValue(message);
+      processValue(message.value, key);
       break;
     default:
 
@@ -104,13 +104,11 @@ function processProperty(property) {
   }
 }
 
-function processValue(values, propertyId) {
+function processValue(value, propertyId) {
   logger.debug('process values');
-  logger.debug(propertyMap);
-  logger.debug(propertyId);
-  if (propertyMap[propertyId] !== undefined) {
+  if (propertyMap.hasOwnProperty(propertyId)) {
     logger.debug(thingMap[propertyMap[propertyId]]);
-    thingMap[propertyMap[propertyId]].currentPeriodDataCount += values.length;
+    thingMap[propertyMap[propertyId]].currentPeriodDataCount++;
   }
 }
 
