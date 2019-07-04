@@ -108,7 +108,9 @@ function processValue(values, propertyId) {
 }
 
 function checkActivityAndCount() {
-  thingMap.forEach(thing => {
+  for (let key in thingMap) {
+    if (!thingMap.hasOwnProperty(key)) continue;
+    let thing = thingMap[key];
     if (thing.currentPeriodDataCount > 0) {
       // assume that we will receive a values for the count, so we start at -1
       thing.currentPeriodDataCount = -1;
@@ -144,7 +146,7 @@ function checkActivityAndCount() {
         values: [[Date.now(), thing.activity]]
       }));
     }
-  })
+  }
 }
 
 function createThingProperties(entityId) {
