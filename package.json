@@ -1,0 +1,34 @@
+{
+  "name": "dcd-processor",
+  "version": "0.0.1",
+  "description": "Processing data from Kafka to Kafka ",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/datacentricdesign/dcd-processor.git"
+  },
+  "author": "Jacky Bourgeois",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/datacentricdesign/dcd-processor/issues"
+  },
+  "homepage": "https://github.com/datacentricdesign/dcd-processor#readme",
+  "dependencies": {
+    "dcd-model": "0.0.61",
+    "dotenv": "8.0.0",
+    "influx": "5.4.0",
+    "kafka-node": "4.1.3",
+    "log4js": "4.4.0"
+  },
+  "devDependencies": {
+    "babel-eslint": "10.0.2",
+    "eslint": "6.0.1"
+  },
+  "optionalDependencies": {
+    "eslint-config-prettier": "6.0.0",
+    "eslint-plugin-prettier": "3.1.0"
+  }
+}
