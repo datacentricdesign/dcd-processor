@@ -66,7 +66,7 @@ function onMessage(message) {
       processProperty(json, message.key);
       break;
     case 'values':
-      processValue(message.value, key);
+      processValue(message.value, message.key);
       break;
     default:
 
