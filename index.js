@@ -107,7 +107,7 @@ function processProperty(property) {
 function processValue(values, propertyId) {
   logger.debug('process values');
   if (propertyMap.hasOwnProperty(propertyId)) {
-    logger.debug(thingMap[propertyMap[propertyId]]p);
+    logger.debug(thingMap[propertyMap[propertyId]]);
     thingMap[propertyMap[propertyId]].currentPeriodDataCount += values.length;
   }
 }
