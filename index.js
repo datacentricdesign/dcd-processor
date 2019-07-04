@@ -106,7 +106,7 @@ function processProperty(property) {
 
 function processValue(values, propertyId) {
   logger.debug('process values');
-  if (propertyMap.hasOwnProperty(propertyId)) {
+  if (propertyMap[propertyId] !== undefined) {
     logger.debug(thingMap[propertyMap[propertyId]]);
     thingMap[propertyMap[propertyId]].currentPeriodDataCount += values.length;
   }
