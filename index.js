@@ -97,7 +97,7 @@ function processProperty(property) {
           createThingProperties(property.entityId);
         });
     }
-    propertyMap[property.id] = entityId;
+    propertyMap[property.id] = property.entityId;
   }
 }
 
