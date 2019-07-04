@@ -86,7 +86,7 @@ function processProperty(property) {
     if (!thingMap.hasOwnProperty(property.entityId)) {
       model.things.read(property.entityId)
         .then((thing) => {
-          logger.debug('read thing ' + JSON.stringify(thing));
+          logger.debug('read thing ' + thing.id);
           thingMap[entityId] = {
             id: thing.id,
             currentPeriodDataCount: 0,
