@@ -1,4 +1,8 @@
-# dcd-processor
+# DCD Processor
+
+![GitHub package.json version](https://img.shields.io/github/package-json/v/datacentricdesign/dcd-processor)
+![GitHub release (latest by date)](https://img.shields.io/github/v/release/datacentricdesign/dcd-processor)
+![Docker Build Status](https://img.shields.io/docker/build/datacentricdesign/dcd-processor)
 
 Processing data from Kafka to Kafka
 
